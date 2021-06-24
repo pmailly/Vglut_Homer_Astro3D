@@ -40,7 +40,7 @@ import mcib3d.utils.ThreadUtil;
  *
  * @author phm
  */
-public class Vglut_Homer_Tools3DV2 {
+public class Vglut_Homer_Tools3D {
     
 // max distance to find dots to astrocyte
     public static double maxDistAstro = 1.5; 
@@ -70,7 +70,7 @@ public class Vglut_Homer_Tools3DV2 {
     public static String thresholdMethod = "Default"; 
     public static ArrayList<String> channels = new ArrayList();
     
-    public static Vglut_Homer_Tools3DV2 instance;
+    public static Vglut_Homer_Tools3D instance;
     
 
 

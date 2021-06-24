@@ -5,7 +5,7 @@
  */
 
 
-import VglutHomerTools.Vglut_Homer_Tools3DV2;
+import VglutHomerTools.Vglut_Homer_Tools3D;
 import java.text.NumberFormat;
 import java.util.Locale;
 import javax.swing.DefaultComboBoxModel;
@@ -19,7 +19,7 @@ import javax.swing.text.NumberFormatter;
  */
 public class JDialogParametersVglut_Homer_Astro extends javax.swing.JDialog {
 
-    Vglut_Homer_Tools3DV2 astro = null;
+    Vglut_Homer_Tools3D astro = null;
     String[] chs = astro.channels.toArray(new String[astro.channels.size()]);
     NumberFormat nf = NumberFormat.getNumberInstance(Locale.US);
     NumberFormatter nff = new NumberFormatter(nf);
@@ -42,7 +42,7 @@ public class JDialogParametersVglut_Homer_Astro extends javax.swing.JDialog {
         }
        
         initComponents();
-        astro = Vglut_Homer_Tools3DV2.instance;
+        astro = Vglut_Homer_Tools3D.instance;
     }
 
 
@@ -738,7 +738,7 @@ public class JDialogParametersVglut_Homer_Astro extends javax.swing.JDialog {
 
     private void jButtonOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonOkActionPerformed
         this.dispose();
-        astro = Vglut_Homer_Tools3DV2.instance;
+        astro = Vglut_Homer_Tools3D.instance;
     }//GEN-LAST:event_jButtonOkActionPerformed
 
     private void jButtonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelActionPerformed

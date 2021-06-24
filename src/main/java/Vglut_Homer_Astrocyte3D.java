@@ -3,34 +3,34 @@
  * Author Philippe Mailly
  */
 import VglutHomerTools.Synapse_Vglut_Homer;
-import static VglutHomerTools.Vglut_Homer_Tools3DV2.bleachCorrAstro;
-import static VglutHomerTools.Vglut_Homer_Tools3DV2.bleachCorrVglutSted;
-import static VglutHomerTools.Vglut_Homer_Tools3DV2.bleachCorrVglutConf;
-import static VglutHomerTools.Vglut_Homer_Tools3DV2.bleachCorrHomerSted;
-import static VglutHomerTools.Vglut_Homer_Tools3DV2.bleachCorrHomerConf;
+import static VglutHomerTools.Vglut_Homer_Tools3D.bleachCorrAstro;
+import static VglutHomerTools.Vglut_Homer_Tools3D.bleachCorrVglutSted;
+import static VglutHomerTools.Vglut_Homer_Tools3D.bleachCorrVglutConf;
+import static VglutHomerTools.Vglut_Homer_Tools3D.bleachCorrHomerSted;
+import static VglutHomerTools.Vglut_Homer_Tools3D.bleachCorrHomerConf;
 
-import static VglutHomerTools.Vglut_Homer_Tools3DV2.bleachCorrection;
-import static VglutHomerTools.Vglut_Homer_Tools3DV2.cal;
-import static VglutHomerTools.Vglut_Homer_Tools3DV2.channels;
-import static VglutHomerTools.Vglut_Homer_Tools3DV2.vglutConfDotsIntRef;
-import static VglutHomerTools.Vglut_Homer_Tools3DV2.homerConfDotsIntRef;
-import static VglutHomerTools.Vglut_Homer_Tools3DV2.dialogThreshod;
-import static VglutHomerTools.Vglut_Homer_Tools3DV2.distanceSynToAstroBorder;
-import static VglutHomerTools.Vglut_Homer_Tools3DV2.findDotsIntPop;
-import static VglutHomerTools.Vglut_Homer_Tools3DV2.findDotsWithMaxLocal;
-import static VglutHomerTools.Vglut_Homer_Tools3DV2.findSynapses;
-import static VglutHomerTools.Vglut_Homer_Tools3DV2.flush_close;
-import static VglutHomerTools.Vglut_Homer_Tools3DV2.homerMaxRadXY;
-import static VglutHomerTools.Vglut_Homer_Tools3DV2.homerMaxRadZ;
-import static VglutHomerTools.Vglut_Homer_Tools3DV2.homerNoise;
-import static VglutHomerTools.Vglut_Homer_Tools3DV2.saveSynapses;
-import static VglutHomerTools.Vglut_Homer_Tools3DV2.savePopImage;
-import static VglutHomerTools.Vglut_Homer_Tools3DV2.thresholdMethod;
-import static VglutHomerTools.Vglut_Homer_Tools3DV2.vglutMaxRadXY;
-import static VglutHomerTools.Vglut_Homer_Tools3DV2.vglutMaxRadZ;
-import static VglutHomerTools.Vglut_Homer_Tools3DV2.vglutNoise;
-import static VglutHomerTools.Vglut_Homer_Tools3DV2.writeResults;
-import static VglutHomerTools.Vglut_Homer_Tools3DV2.writeHeaders;
+import static VglutHomerTools.Vglut_Homer_Tools3D.bleachCorrection;
+import static VglutHomerTools.Vglut_Homer_Tools3D.cal;
+import static VglutHomerTools.Vglut_Homer_Tools3D.channels;
+import static VglutHomerTools.Vglut_Homer_Tools3D.vglutConfDotsIntRef;
+import static VglutHomerTools.Vglut_Homer_Tools3D.homerConfDotsIntRef;
+import static VglutHomerTools.Vglut_Homer_Tools3D.dialogThreshod;
+import static VglutHomerTools.Vglut_Homer_Tools3D.distanceSynToAstroBorder;
+import static VglutHomerTools.Vglut_Homer_Tools3D.findDotsIntPop;
+import static VglutHomerTools.Vglut_Homer_Tools3D.findDotsWithMaxLocal;
+import static VglutHomerTools.Vglut_Homer_Tools3D.findSynapses;
+import static VglutHomerTools.Vglut_Homer_Tools3D.flush_close;
+import static VglutHomerTools.Vglut_Homer_Tools3D.homerMaxRadXY;
+import static VglutHomerTools.Vglut_Homer_Tools3D.homerMaxRadZ;
+import static VglutHomerTools.Vglut_Homer_Tools3D.homerNoise;
+import static VglutHomerTools.Vglut_Homer_Tools3D.saveSynapses;
+import static VglutHomerTools.Vglut_Homer_Tools3D.savePopImage;
+import static VglutHomerTools.Vglut_Homer_Tools3D.thresholdMethod;
+import static VglutHomerTools.Vglut_Homer_Tools3D.vglutMaxRadXY;
+import static VglutHomerTools.Vglut_Homer_Tools3D.vglutMaxRadZ;
+import static VglutHomerTools.Vglut_Homer_Tools3D.vglutNoise;
+import static VglutHomerTools.Vglut_Homer_Tools3D.writeResults;
+import static VglutHomerTools.Vglut_Homer_Tools3D.writeHeaders;
 
 import ij.*;
 import ij.plugin.PlugIn;
@@ -60,7 +60,7 @@ import org.apache.commons.io.FilenameUtils;
 
 
 
-public class Vglut_Homer_Astrocyte3DV2 implements PlugIn {
+public class Vglut_Homer_Astrocyte3D implements PlugIn {
 
     private boolean canceled = false;
     private String imageDir = "";
@@ -279,7 +279,7 @@ public class Vglut_Homer_Astrocyte3DV2 implements PlugIn {
                         // Writing results
                         writeResults(rootName, astroObj, synapses, outDirResults, outPutResults);
                     } catch (IOException ex) {
-                        Logger.getLogger(Vglut_Homer_Astrocyte3DV2.class.getName()).log(Level.SEVERE, null, ex);
+                        Logger.getLogger(Vglut_Homer_Astrocyte3D.class.getName()).log(Level.SEVERE, null, ex);
                     }
                     // Save image objects
                     saveSynapses(synapses, imgAstro, astroObj, outDirResults+rootName);
@@ -292,7 +292,7 @@ public class Vglut_Homer_Astrocyte3DV2 implements PlugIn {
                 outPutResults.close();
             IJ.showStatus("Process done");
         } catch (DependencyException | FormatException | IOException | ServiceException ex) {
-            Logger.getLogger(Vglut_Homer_Astrocyte3DV2.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Vglut_Homer_Astrocyte3D.class.getName()).log(Level.SEVERE, null, ex);
         }
     } 
     
